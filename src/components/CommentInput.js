@@ -3,41 +3,28 @@ import PropTypes from 'prop-types'
 
 class CommentInput extends Component {
   static propTypes = {
-    onSubmit: PropTypes.func
+    username: PropTypes.any,
+    onSubmit: PropTypes.func,
+    onUsernameInputBlur: PropTypes.func
   }
   
   constructor(props) {
     super(props)
 
     this.state = {
-      username: '',
+      username: props.username,
       content: ''
     }
-
-    this.handleUsernammeChange = this.handleUsernammeChange.bind(this)
-    this.handleContentChange = this.handleContentChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleUsernameBlur = this.handleUsernameBlur.bind(this)
   }
 
   componentDidMount() {
-    this._loadUsername()
     this.textarea.focus()
   }
 
-  _saveUsername(username) {
-    localStorage.setItem('username', username)
-  }
-
-  _loadUsername() {
-    const username = localStorage.getItem('username')
-    if (username) {
-      this.setState({username})
-    }
-  }
-
   handleUsernameBlur(event) {
-    this._saveUsername(event.target.value)
+    if (this.props.onUsernameInputBlur) {
+      this.props.onUsernameInputBlur(event.target.value)
+    }
   }
 
   handleUsernammeChange(e) {
@@ -69,8 +56,8 @@ class CommentInput extends Component {
           <div className='comment-field-input'>
             <input 
               value={this.state.username}
-              onBlur={this.handleUsernameBlur}
-              onChange={this.handleUsernammeChange} />
+              onBlur={this.handleUsernameBlur.bind(this)}
+              onChange={this.handleUsernammeChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field'>
@@ -79,11 +66,11 @@ class CommentInput extends Component {
             <textarea
               ref={(textarea) => this.textarea = textarea}
               value={this.state.content}
-              onChange={this.handleContentChange} />
+              onChange={this.handleContentChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field-button'>
-          <button onClick={this.handleSubmit}>
+          <button onClick={this.handleSubmit.bind(this)}>
             发布
           </button>
         </div>
