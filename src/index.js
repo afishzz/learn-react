@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodiList from './TodiList';
+import CommentApp from './CommentApp';
+import './index.css'
 
-ReactDOM.render(<TodiList />, document.getElementById('root'));
-
+ReactDOM.render(<CommentApp />, document.getElementById('root'));
