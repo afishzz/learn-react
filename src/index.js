@@ -10,7 +10,7 @@ const store = createStore(reducer)
 
 ReactDOM.render(
   <Provider store={store}>
-   <CommentApp /> 
+    <CommentApp /> 
   </Provider>,
   document.getElementById('root')
 );
