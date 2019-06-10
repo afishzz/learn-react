@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 
 class CommemtList extends Component {
   static propTypes = {
-    comments: PropTypes.array.isRequired,
+    comments: PropTypes.array,
     onDeleteComment: PropTypes.func
   }
 
   static defaultProps = {
-    comment: []
+    comments: []
   }
 
   handleDeleteComment(index) {

@@ -15,6 +15,9 @@ class CommentInput extends Component {
       username: props.username,
       content: ''
     }
+
+    console.log('dumb constructor')
+    
   }
 
   componentDidMount() {
@@ -27,7 +30,7 @@ class CommentInput extends Component {
     }
   }
 
-  handleUsernammeChange(e) {
+  handleUsernameChange(e) {
     this.setState({
       username: e.target.value
     })
@@ -57,7 +60,7 @@ class CommentInput extends Component {
             <input 
               value={this.state.username}
               onBlur={this.handleUsernameBlur.bind(this)}
-              onChange={this.handleUsernammeChange.bind(this)} />
+              onChange={this.handleUsernameChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field'>

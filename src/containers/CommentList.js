@@ -23,11 +23,11 @@ class CommentListContainer extends Component {
 
   handleDeleteComment(index) {
     const { comments } = this.props
-    const newCommens = [
+    const newComments = [
       ...comments.slice(0, index),
       ...comments.slice(index + 1)
     ]
-    localStorage.setItem('comments', JSON.stringify(newCommens))
+    localStorage.setItem('comments', JSON.stringify(newComments))
     if (this.props.onDeleteComment) {
       this.props.onDeleteComment(index)
     }
