@@ -24,6 +24,10 @@ class Comment extends Component {
     )
   }
 
+  componentWillUnmount() {
+    clearInterval(this._timer)
+  }
+
   _updateTimeString() {
     const comment = this.props.comment
     const duration = (+Date.now() - comment.createdTime) / 1000

@@ -39,7 +39,7 @@ class CommentInputContainer extends Component {
       <CommentInput
         username={this.state.username}
         onSubmit={this.handleSubmit.bind(this)}
-        onUserInputBlur={this.handleUserInputBlur.bind(this)} />
+        onUsernameInputBlur={this.handleUserInputBlur.bind(this)} />
     );
   }
 }

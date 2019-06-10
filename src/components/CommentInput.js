@@ -15,9 +15,6 @@ class CommentInput extends Component {
       username: props.username,
       content: ''
     }
-
-    console.log('dumb constructor')
-    
   }
 
   componentDidMount() {
